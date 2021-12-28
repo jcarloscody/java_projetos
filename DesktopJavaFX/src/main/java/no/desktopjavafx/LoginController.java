@@ -2,15 +2,24 @@ package no.desktopjavafx;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class LoginController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.EventListener;
+import java.util.ResourceBundle;
+
+public class LoginController implements Initializable {
 
     @FXML
     private Label erroLabel;
@@ -34,8 +43,10 @@ public class LoginController {
     private Button closeButton;
 
     @FXML
-    public void onLogin(){
-        erroLabel.setText("Please enter username and password!");
+    public void onLogin() throws IOException {
+        Home home = new Home();
+        home.start(new Stage());
+        fechar();
     }
 
     @FXML
@@ -44,5 +55,32 @@ public class LoginController {
         Stage stage2 = (Stage) closeButton.getScene().getWindow();
         stage.close();
         stage2.close();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cancelButton.setOnMouseClicked((MouseEvent e)->{
+            fechar();
+        });
+
+        cancelButton.setOnKeyPressed((KeyEvent e)->{
+            if (e.getCode()== KeyCode.ENTER){
+                fechar();
+            }
+        });
+
+        passwordField.setOnKeyPressed((KeyEvent e)->{
+            if (e.getCode()== KeyCode.ENTER){
+                try {
+                    onLogin();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void fechar(){
+        Login.getStage().close();
     }
 }
