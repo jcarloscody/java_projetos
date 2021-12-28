@@ -5,6 +5,8 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 public class LoginGui extends javax.swing.JFrame {
@@ -246,7 +248,23 @@ public class LoginGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjButtonActionPerformed
-        // TODO add your handling code here:
+        Point p = this.getLocation(); //faz a tela tremer
+        LoginGui loginGui = this;
+        new Thread(){
+            @Override
+            public void run(){       
+                try {
+                    for (int i = 0; i < 3; i++) {
+                    loginGui.setLocation(p.x - 10, p.y);
+                    sleep(20);
+                    loginGui.setLocation(p.x + 10, p.y);
+                    sleep(20);
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(LoginGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }.start();
         
     }//GEN-LAST:event_loginjButtonActionPerformed
 
