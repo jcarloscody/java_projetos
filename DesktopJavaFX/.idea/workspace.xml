@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6309537f-fc5a-4eb8-9806-5c2b1b62397a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/no/desktopjavafx/login-view.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="6309537f-fc5a-4eb8-9806-5c2b1b62397a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
