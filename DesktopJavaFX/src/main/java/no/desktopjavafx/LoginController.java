@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Light;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -44,9 +45,28 @@ public class LoginController implements Initializable {
 
     @FXML
     public void onLogin() throws IOException {
-        Home home = new Home();
-        home.start(new Stage());
-        fechar();
+
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    for (int i = 0; i < 3; i++) {
+                        Login.getStage().setX(Login.xOffsetC - 2);
+                        Login.getStage().setY(Login.yOffsetC);
+                        sleep(20);
+                        Login.getStage().setX(Login.xOffsetC + 2);
+                        Login.getStage().setY(Login.yOffsetC);
+                        sleep(20);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+
+       // Home home = new Home();
+      //  home.start(new Stage());
+       // fechar();
     }
 
     @FXML

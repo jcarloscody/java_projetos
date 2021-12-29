@@ -15,8 +15,10 @@ public class Login extends Application {
 
     private static Stage stage;//janela1
 
-    private double xOffset = 0;
-    private double yOffset = 0;
+    static double xOffset = 0;
+    static double yOffset = 0;
+    static double xOffsetC = 330;
+    static double yOffsetC = 100;
 
     public static void main(String[] args) {
         launch();
@@ -34,6 +36,16 @@ public class Login extends Application {
             public void handle(MouseEvent event) {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
+            }
+        });
+
+        root.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffsetC = event.getSceneX();
+                yOffsetC = event.getSceneY();
+
+
             }
         });
 
