@@ -1,0 +1,15 @@
+.button {
+    -fx-background-color : #FE2E2E;
+}
+
+#login{
+    -fx-background-radius: 10px;
+}
+
+.button:hover {
+    -fx-background-color : #FF0000 ;
+}
+
+.button:pressed {
+    -fx-background-color : #B40404;
+}

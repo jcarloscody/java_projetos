@@ -28,6 +28,7 @@ public class Login extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));//carrega xml
         Scene scene = new Scene(root);//colona numa cena
+        //scene.getStylesheets().add(getClass().getResource("css.css").toExternalForm());
 
         stage.initStyle(StageStyle.DECORATED.UNDECORATED);
 

@@ -38,10 +38,10 @@ public class LoginController implements Initializable {
     private Button cancelButton;
 
     @FXML
-    private ImageView closeImg;
+    private Button closeButton;
 
     @FXML
-    private Button closeButton;
+    private ImageView logoCarImage;
 
     @FXML
     public void onLogin() throws IOException {
@@ -64,17 +64,15 @@ public class LoginController implements Initializable {
             }
         }.start();
 
-       // Home home = new Home();
-      //  home.start(new Stage());
-       // fechar();
+        Home home = new Home();
+        home.start(new Stage());
+        fechar();
     }
 
     @FXML
     public void onCancel(ActionEvent e){
-        Stage stage = (Stage) closeImg.getScene().getWindow();
-        Stage stage2 = (Stage) closeButton.getScene().getWindow();
+        Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
-        stage2.close();
     }
 
     @Override
@@ -102,5 +100,17 @@ public class LoginController implements Initializable {
 
     public void fechar(){
         Login.getStage().close();
+    }
+
+    @FXML
+    void onLoginEnter(MouseEvent event) {
+        logoCarImage.setFitWidth(99);
+        logoCarImage.setFitHeight(115);
+    }
+
+    @FXML
+    void onLoginOut(MouseEvent event) {
+        logoCarImage.setFitWidth(94);
+        logoCarImage.setFitHeight(101);
     }
 }
