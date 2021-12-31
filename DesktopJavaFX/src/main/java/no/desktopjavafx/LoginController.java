@@ -3,16 +3,16 @@ package no.desktopjavafx;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.effect.Effect;
 import javafx.scene.effect.Light;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,6 +42,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private ImageView logoCarImage;
+
+    @FXML
+    private Hyperlink forgotPassHyperlink;
 
     @FXML
     public void onLogin() throws IOException {
@@ -112,5 +115,15 @@ public class LoginController implements Initializable {
     void onLoginOut(MouseEvent event) {
         logoCarImage.setFitWidth(94);
         logoCarImage.setFitHeight(101);
+    }
+
+    @FXML
+    void onMouseForgotIn(MouseEvent event) {
+        forgotPassHyperlink.setFont(Font.font("System", FontWeight.BOLD, 12));
+    }
+
+    @FXML
+    void onMouseForgotOut(MouseEvent event) {
+        forgotPassHyperlink.setFont(Font.font("System", FontWeight.NORMAL, 12));
     }
 }

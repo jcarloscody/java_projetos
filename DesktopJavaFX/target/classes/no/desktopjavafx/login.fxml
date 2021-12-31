@@ -66,11 +66,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Hyperlink layoutX="116.0" layoutY="465.0" text="Forgot your password?" textFill="#f20000">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Hyperlink>
+            <Hyperlink fx:id="forgotPassHyperlink" layoutX="116.0" layoutY="465.0" onMouseEntered="#onMouseForgotIn" onMouseExited="#onMouseForgotOut" text="Forgot your password?" textFill="#f20000" />
             <Text fill="#eb0404" layoutX="123.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
                <font>
                   <Font size="22.0" />
