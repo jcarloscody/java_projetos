@@ -4,6 +4,7 @@ package gui;
 
 
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +39,7 @@ public class LoginGui extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        minimizejButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 0));
@@ -173,6 +175,24 @@ public class LoginGui extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\developer\\Documents\\Repositorios\\ProjectsJava\\DesktopJavaSwing\\DesktopJavaSwing\\src\\main\\java\\gui\\img\\users.png")); // NOI18N
 
+        minimizejButton.setBackground(new java.awt.Color(255, 0, 0));
+        minimizejButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        minimizejButton.setForeground(new java.awt.Color(255, 255, 255));
+        minimizejButton.setText("-");
+        minimizejButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizejButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizejButtonMouseExited(evt);
+            }
+        });
+        minimizejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minimizejButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -201,17 +221,21 @@ public class LoginGui extends javax.swing.JFrame {
                                     .addComponent(passwjPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(usernamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(minimizejButton))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addGap(56, 56, 56)
                         .addComponent(jLabel2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel5))
+                    .addComponent(minimizejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(usernamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,16 +279,20 @@ public class LoginGui extends javax.swing.JFrame {
             public void run(){       
                 try {
                     for (int i = 0; i < 3; i++) {
-                    loginGui.setLocation(p.x - 10, p.y);
-                    sleep(20);
-                    loginGui.setLocation(p.x + 10, p.y);
-                    sleep(20);
+                        loginGui.setLocation(p.x - 10, p.y);
+                        sleep(20);
+                        loginGui.setLocation(p.x + 10, p.y);
+                        sleep(20);
                     }
                 } catch (InterruptedException ex) {
                     Logger.getLogger(LoginGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }.start();
+        
+        HomeAdm homeAdm = new HomeAdm();
+        homeAdm.setVisible(true);
+        loginGui.setVisible(false);
         
     }//GEN-LAST:event_loginjButtonActionPerformed
 
@@ -326,7 +354,7 @@ public class LoginGui extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseClicked
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        point.x = evt.getX();
+        point.x = evt.getX();//dar possibilidade para arrastar
         point.y = evt.getY();
     }//GEN-LAST:event_formMousePressed
 
@@ -338,6 +366,19 @@ public class LoginGui extends javax.swing.JFrame {
         Point p = this.getLocation();
         this.setLocation(p.x + evt.getX() - point.x, p.y + evt.getY() - point.y);
     }//GEN-LAST:event_formMouseDragged
+
+    private void minimizejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizejButtonActionPerformed
+        LoginGui login = this;
+        login.setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_minimizejButtonActionPerformed
+
+    private void minimizejButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizejButtonMouseEntered
+        minimizejButton.setBackground(new Color(100,0,0));
+    }//GEN-LAST:event_minimizejButtonMouseEntered
+
+    private void minimizejButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizejButtonMouseExited
+        minimizejButton.setBackground(new Color(255,0,0));;
+    }//GEN-LAST:event_minimizejButtonMouseExited
 
     /**
      * @param args the command line arguments
@@ -384,6 +425,7 @@ public class LoginGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton loginjButton;
+    private javax.swing.JButton minimizejButton;
     private javax.swing.JPasswordField passwjPasswordField;
     private javax.swing.JTextField usernamejTextField;
     // End of variables declaration//GEN-END:variables
