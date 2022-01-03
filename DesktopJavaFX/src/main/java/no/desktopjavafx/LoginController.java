@@ -14,9 +14,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import no.database.ConnectionFactory;
+import no.entities.User;
+import no.services.UserServices;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
@@ -47,29 +53,37 @@ public class LoginController implements Initializable {
     private Hyperlink forgotPassHyperlink;
 
     @FXML
-    public void onLogin() throws IOException {
+    public void onLogin() throws IOException, SQLException {
 
-        new Thread(){
-            @Override
-            public void run() {
-                try {
-                    for (int i = 0; i < 3; i++) {
-                        Login.getStage().setX(Login.xOffsetC - 2);
-                        Login.getStage().setY(Login.yOffsetC);
-                        sleep(20);
-                        Login.getStage().setX(Login.xOffsetC + 2);
-                        Login.getStage().setY(Login.yOffsetC);
-                        sleep(20);
+        String usuario = userNameTextField.getText();
+        String password = passwordField.getText();
+        User user = new User(usuario, password);
+        ResultSet rs = UserServices.autenticationLogin(user);
+
+        if (rs.next()){
+            Home home = new Home();
+            home.start(new Stage());
+            fechar();
+        }else{
+            erroLabel.setText("username or password was wrong");
+            new Thread(){
+                @Override
+                public void run() {
+                    try {
+                        for (int i = 0; i < 3; i++) {
+                            Login.getStage().setX(Login.xOffsetC - 2);
+                            Login.getStage().setY(Login.yOffsetC);
+                            sleep(20);
+                            Login.getStage().setX(Login.xOffsetC + 2);
+                            Login.getStage().setY(Login.yOffsetC);
+                            sleep(20);
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
-            }
-        }.start();
-
-        Home home = new Home();
-        home.start(new Stage());
-        fechar();
+            }.start();
+        }
     }
 
     @FXML
@@ -95,6 +109,8 @@ public class LoginController implements Initializable {
                 try {
                     onLogin();
                 } catch (IOException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }

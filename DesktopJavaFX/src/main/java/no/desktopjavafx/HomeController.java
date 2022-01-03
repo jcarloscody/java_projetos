@@ -31,6 +31,9 @@ public class HomeController {
     private ImageView logoCarImage;
 
     @FXML
+    private Button employeesButton;
+
+    @FXML
     private Text logoLetraImage;
 
     @FXML
@@ -43,6 +46,11 @@ public class HomeController {
     @FXML
     void onClose(ActionEvent event) {
         Home.getStage().close();
+    }
+
+    @FXML
+    void onFechar(ActionEvent event) {
+        System.exit(0);
     }
 
     @FXML
@@ -81,6 +89,13 @@ public class HomeController {
     void onLogin(ActionEvent event) throws IOException {
         Login login = new Login();
         login.start(new Stage());
+        onClose(event);
+    }
+
+    @FXML
+    void onEmployees(ActionEvent event) throws IOException {
+        HomeEmployees homeEmployees = new HomeEmployees();
+        homeEmployees.start(new Stage());
         onClose(event);
     }
 

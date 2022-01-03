@@ -13,3 +13,20 @@
 .button:pressed {
     -fx-background-color : #B40404;
 }
+
+#local {
+    -fx-background-color : #B40404;
+}
+
+
+#menu {
+    -fx-background-color : 		#B22222;
+}
+
+#menu:hover {
+    -fx-background-color :#8B0000;
+}
+
+#menu:pressed {
+    -fx-background-color : #800000;
+}

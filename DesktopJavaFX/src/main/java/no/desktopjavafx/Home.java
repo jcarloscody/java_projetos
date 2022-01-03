@@ -20,7 +20,7 @@ public class Home extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("homeadm.fxml"));//carrega xml
+        Parent root = FXMLLoader.load(getClass().getResource("homeadmh.fxml"));//carrega xml
         Scene scene = new Scene(root);//colona numa cena
 
         stage.initStyle(StageStyle.DECORATED.UNDECORATED);
