@@ -8,4 +8,6 @@ import com.conquistandoavaga.winner.domain.Categoria;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
 
+	
+
 }
