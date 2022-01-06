@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.conquistandoavaga.winner.domain.Categoria;
+
 import com.conquistandoavaga.winner.domain.Produto;
-import com.conquistandoavaga.winner.services.CategoriaService;
 import com.conquistandoavaga.winner.services.ProdutoService;
 
 @RestController

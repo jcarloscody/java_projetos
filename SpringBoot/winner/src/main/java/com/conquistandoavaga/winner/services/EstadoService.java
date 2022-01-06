@@ -7,20 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import com.conquistandoavaga.winner.domain.Produto;
-import com.conquistandoavaga.winner.repositories.ProdutoRepository;
+import com.conquistandoavaga.winner.domain.Estado;
+import com.conquistandoavaga.winner.repositories.EstadoRepository;
 
 @Service
-public class ProdutoService {
+public class EstadoService {
 	
 	@Autowired
-	ProdutoRepository repository;
+	EstadoRepository repository;
 	
-	public Produto buscar(Integer id) {
+	public Estado buscar(Integer id) {
 		//Optional<Categoria> obj = repository.findById(id);
 		//return obj.orElse(null); 
-		Optional<Produto> obj = repository.findById(id);
+		Optional<Estado> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-		 "Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName(), null));
+		 "Objeto não encontrado! Id: " + id + ", Tipo: " + Estado.class.getName(), null));
 	}
 }
