@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="708.0" stylesheets="@css/css.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.desktopjavafx.NewEmployeeController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="708.0" stylesheets="@css/css.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.desktopjavafx.controller.NewEmployeeController">
    <children>
       <TextField fx:id="nomeTextField" layoutX="78.0" layoutY="104.0" prefHeight="25.0" prefWidth="202.0" />
       <Text layoutX="78.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />

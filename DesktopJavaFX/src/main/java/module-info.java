@@ -8,5 +8,7 @@ module no.desktopjavafx {
 
     exports no.desktopjavafx;
     exports no.database;
+    exports no.desktopjavafx.controller;
+    opens no.desktopjavafx.controller to javafx.fxml;
 }
 

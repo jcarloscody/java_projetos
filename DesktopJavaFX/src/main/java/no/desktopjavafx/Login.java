@@ -15,10 +15,10 @@ public class Login extends Application {
 
     private static Stage stage;//janela1
 
-    static double xOffset = 0;
-    static double yOffset = 0;
-    static double xOffsetC = 330;
-    static double yOffsetC = 100;
+    public static double xOffset = 0;
+    public static double yOffset = 0;
+    public static double xOffsetC = 330;
+    public static double yOffsetC = 100;
 
     public static void main(String[] args) {
         launch();

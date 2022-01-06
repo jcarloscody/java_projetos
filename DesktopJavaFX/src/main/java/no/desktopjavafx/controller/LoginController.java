@@ -1,4 +1,4 @@
-package no.desktopjavafx;
+package no.desktopjavafx.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +15,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import no.database.ConnectionFactory;
+import no.desktopjavafx.Home;
+import no.desktopjavafx.Login;
 import no.entities.User;
 import no.services.UserServices;
 
