@@ -38,6 +38,8 @@ public class Cliente implements Serializable{
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>(); //no modelo relacional - telefone - é uma entidade fraca, por este motivo estamos optando em nao fazer uma class para representar esta entidade. Set é uma colecao do tipo conjunto que não permite repeticoes
 	
+	
+	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
 	public Cliente() {

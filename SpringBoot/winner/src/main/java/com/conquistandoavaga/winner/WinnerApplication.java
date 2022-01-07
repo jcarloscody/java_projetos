@@ -2,6 +2,7 @@ package com.conquistandoavaga.winner;
 
 
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,20 @@ import com.conquistandoavaga.winner.domain.Cidade;
 import com.conquistandoavaga.winner.domain.Cliente;
 import com.conquistandoavaga.winner.domain.Endereco;
 import com.conquistandoavaga.winner.domain.Estado;
+import com.conquistandoavaga.winner.domain.Pagamento;
+import com.conquistandoavaga.winner.domain.PagamentoComBoleto;
+import com.conquistandoavaga.winner.domain.PagamentoComCartao;
+import com.conquistandoavaga.winner.domain.Pedido;
 import com.conquistandoavaga.winner.domain.Produto;
+import com.conquistandoavaga.winner.domain.enums.EstadoPagamento;
 import com.conquistandoavaga.winner.domain.enums.TipoCliente;
 import com.conquistandoavaga.winner.repositories.CategoriaRepository;
 import com.conquistandoavaga.winner.repositories.CidadeRepository;
 import com.conquistandoavaga.winner.repositories.ClienteRepository;
 import com.conquistandoavaga.winner.repositories.EnderecoRepository;
 import com.conquistandoavaga.winner.repositories.EstadoRepository;
+import com.conquistandoavaga.winner.repositories.PagamentoRepository;
+import com.conquistandoavaga.winner.repositories.PedidoRepository;
 import com.conquistandoavaga.winner.repositories.ProdutoRepository;
 
 @SpringBootApplication
@@ -43,6 +51,12 @@ public class WinnerApplication implements CommandLineRunner{
 	
 	@Autowired 
 	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private PedidoRepository pedidoRepository;
+	
+	@Autowired
+	private PagamentoRepository pagamentoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(WinnerApplication.class, args);
@@ -92,7 +106,21 @@ public class WinnerApplication implements CommandLineRunner{
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		enderecoRepository.saveAll(Arrays.asList(endereco1, endereco2));
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
 		
+		Pedido pedido1 = new Pedido(null, sdf.parse("30/09/2017 10:32"), cli1, endereco1);
+		Pedido pedido2 = new Pedido(null, sdf.parse("10/10/2017 10:32"), cli1, endereco2);
+		
+		Pagamento pgm1 = new PagamentoComCartao(null, EstadoPagamento.Quitado, pedido1, 6);
+		Pagamento pgm2 = new PagamentoComBoleto(null, EstadoPagamento.Pendente, pedido2, sdf.parse("10/10/2017 10:32"),null);
+		
+		pedido1.setPagamento(pgm1);
+		pedido2.setPagamento(pgm2);
+		
+		cli1.getPedidos().addAll(Arrays.asList(pedido1, pedido2));
+		
+		pedidoRepository.saveAll(Arrays.asList(pedido1, pedido2));
+		pagamentoRepository.saveAll(Arrays.asList(pgm1, pgm2));
 	}
 
 }

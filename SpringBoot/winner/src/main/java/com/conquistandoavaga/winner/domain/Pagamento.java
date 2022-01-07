@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
@@ -12,21 +14,19 @@ import javax.persistence.OneToOne;
 import com.conquistandoavaga.winner.domain.enums.EstadoPagamento;
 
 @Entity
-public class Pagamento  implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Pagamento  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	private Integer id;
-	private int estado;
+	private Integer estado;
 	
 	@OneToOne
 	@JoinColumn(name = "pedido_id")
 	@MapsId
 	private Pedido pedido;
-	
-	private Cliente cliente;
-	
-	private Endereco enderecoDeEntrega;
+
 
 	public Pagamento() {
 		super();
@@ -63,21 +63,7 @@ public class Pagamento  implements Serializable {
 		this.pedido = pedido;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Endereco getEnderecoDeEntrega() {
-		return enderecoDeEntrega;
-	}
-
-	public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
-		this.enderecoDeEntrega = enderecoDeEntrega;
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -98,8 +84,8 @@ public class Pagamento  implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pagamento [id=" + id + ", estado=" + estado + ", pedido=" + pedido + ", cliente=" + cliente
-				+ ", enderecoDeEntrega=" + enderecoDeEntrega + "]";
+		return "Pagamento [id=" + id + ", estado=" + estado + ", pedido=" + pedido + ", cliente="  
+				+ ", enderecoDeEntrega=" + "]";
 	}
 	
 	

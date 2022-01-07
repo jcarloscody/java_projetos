@@ -1,7 +1,8 @@
 package com.conquistandoavaga.winner.domain;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
+ 
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -18,24 +21,29 @@ public class Pedido implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private SimpleDateFormat instant ;//= new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	private Date instant ;//= new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "pedido")
 	private Pagamento pagamento;
 	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
-	private Endereco endereco;
+	@ManyToOne
+	@JoinColumn(name = "endereco_de_entrega_id")
+	private Endereco enderecoDeEntrega;
 
 	public Pedido() {
 		super();
 	}
 
-	public Pedido(Integer id, SimpleDateFormat instant, Pagamento pagamento) {
+	public Pedido(Integer id, Date instant,  Cliente cliente, Endereco enderecoDeEntrega) {
 		super();
 		this.id = id;
 		this.instant = instant;
-		this.pagamento = pagamento;
+		this.cliente = cliente;
+		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
 
 	public Integer getId() {
@@ -46,11 +54,11 @@ public class Pedido implements Serializable {
 		this.id = id;
 	}
 
-	public SimpleDateFormat getInstant() {
+	public Date getInstant() {
 		return instant;
 	}
 
-	public void setInstant(SimpleDateFormat instant) {
+	public void setInstant(Date instant) {
 		this.instant = instant;
 	}
 
@@ -60,6 +68,25 @@ public class Pedido implements Serializable {
 
 	public void setPagamento(Pagamento pagamento) {
 		this.pagamento = pagamento;
+	}
+	
+	
+	
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Endereco getEnderecoDeEntrega() {
+		return enderecoDeEntrega;
+	}
+
+	public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
+		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
 
 	@Override

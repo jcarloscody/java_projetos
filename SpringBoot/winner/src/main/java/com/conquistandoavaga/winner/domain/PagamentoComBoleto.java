@@ -1,15 +1,19 @@
 package com.conquistandoavaga.winner.domain;
 
 
-import java.text.SimpleDateFormat;
+ 
+import java.util.Date;
+
+import javax.persistence.Entity;
 
 import com.conquistandoavaga.winner.domain.enums.EstadoPagamento;
 
+@Entity
 public class PagamentoComBoleto extends Pagamento{
 	private static final long serialVersionUID = 1L;
 	
-	private SimpleDateFormat dataVencimento;
-	private SimpleDateFormat dataPagamento;
+	private Date dataVencimento;
+	private Date dataPagamento;
 	
 	
 
@@ -18,8 +22,8 @@ public class PagamentoComBoleto extends Pagamento{
 	
 	
 
-	public PagamentoComBoleto(Integer id, EstadoPagamento estado, Pedido pedido, SimpleDateFormat dataVencimento,
-			SimpleDateFormat dataPagamento) {
+	public PagamentoComBoleto(Integer id, EstadoPagamento estado, Pedido pedido, Date dataVencimento,
+			Date dataPagamento) {
 		super(id, estado, pedido);
 		
 		this.dataPagamento = dataPagamento;
@@ -29,19 +33,19 @@ public class PagamentoComBoleto extends Pagamento{
 
 
 
-	public SimpleDateFormat getDataVencimento() {
+	public Date getDataVencimento() {
 		return dataVencimento;
 	}
 
-	public void setDataVencimento(SimpleDateFormat dataVencimento) {
+	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
 
-	public SimpleDateFormat getDataPagamento() {
+	public Date getDataPagamento() {
 		return dataPagamento;
 	}
 
-	public void setDataPagamento(SimpleDateFormat dataPagamento) {
+	public void setDataPagamento(Date dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
 
