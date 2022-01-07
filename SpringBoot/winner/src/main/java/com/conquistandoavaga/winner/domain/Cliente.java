@@ -38,6 +38,8 @@ public class Cliente implements Serializable{
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>(); //no modelo relacional - telefone - é uma entidade fraca, por este motivo estamos optando em nao fazer uma class para representar esta entidade. Set é uma colecao do tipo conjunto que não permite repeticoes
 	
+	private List<Pedido> pedidos = new ArrayList<>();
+	
 	public Cliente() {
 		super();
 	}
@@ -94,6 +96,12 @@ public class Cliente implements Serializable{
 		this.telefones = telefones;
 	}
 	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 	
 	@Override
 	public int hashCode() {
@@ -115,6 +123,7 @@ public class Cliente implements Serializable{
 		return "Cliente [id=" + id + ", nome=" + nome + ", email=" + email + ", cpfOuCnpj=" + cpfOuCnpj + ", tipo="
 				+ tipo + "]";
 	}
+	
 	
 	
 	
