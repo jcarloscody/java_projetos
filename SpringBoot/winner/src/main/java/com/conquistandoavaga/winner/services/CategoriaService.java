@@ -1,5 +1,6 @@
 package com.conquistandoavaga.winner.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -44,5 +45,9 @@ public class CategoriaService {
 		}
 		
 		
+	}
+
+	public List<Categoria> findAll() {
+		return repository.findAll();
 	}
 }
