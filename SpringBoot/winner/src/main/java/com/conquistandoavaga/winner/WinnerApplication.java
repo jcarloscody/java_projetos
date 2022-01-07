@@ -3,6 +3,7 @@ package com.conquistandoavaga.winner;
 
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import com.conquistandoavaga.winner.domain.Cidade;
 import com.conquistandoavaga.winner.domain.Cliente;
 import com.conquistandoavaga.winner.domain.Endereco;
 import com.conquistandoavaga.winner.domain.Estado;
+import com.conquistandoavaga.winner.domain.ItemPedido;
 import com.conquistandoavaga.winner.domain.Pagamento;
 import com.conquistandoavaga.winner.domain.PagamentoComBoleto;
 import com.conquistandoavaga.winner.domain.PagamentoComCartao;
@@ -27,6 +29,7 @@ import com.conquistandoavaga.winner.repositories.CidadeRepository;
 import com.conquistandoavaga.winner.repositories.ClienteRepository;
 import com.conquistandoavaga.winner.repositories.EnderecoRepository;
 import com.conquistandoavaga.winner.repositories.EstadoRepository;
+import com.conquistandoavaga.winner.repositories.ItemPedidoRepository;
 import com.conquistandoavaga.winner.repositories.PagamentoRepository;
 import com.conquistandoavaga.winner.repositories.PedidoRepository;
 import com.conquistandoavaga.winner.repositories.ProdutoRepository;
@@ -57,6 +60,9 @@ public class WinnerApplication implements CommandLineRunner{
 	
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
+	
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(WinnerApplication.class, args);
@@ -121,6 +127,22 @@ public class WinnerApplication implements CommandLineRunner{
 		
 		pedidoRepository.saveAll(Arrays.asList(pedido1, pedido2));
 		pagamentoRepository.saveAll(Arrays.asList(pgm1, pgm2));
+		
+		ItemPedido itemPedido1 = new ItemPedido(pedido1, p1, 0.0, 1, 2000.00);
+		ItemPedido itemPedido2 = new ItemPedido(pedido1, p3, 0.0, 2, 80.00);
+		ItemPedido itemPedido3 = new ItemPedido(pedido2, p2, 100.00, 1, 800.00);
+		
+		pedido1.getItens().addAll(Arrays.asList(itemPedido1, itemPedido2));
+		pedido2.getItens().addAll(Arrays.asList( itemPedido3));
+		
+		p1.getItens().addAll(Arrays.asList(itemPedido1));
+		p2.getItens().addAll(Arrays.asList(itemPedido3));
+		p3.getItens().addAll(Arrays.asList(itemPedido2));
+		
+		
+		itemPedidoRepository.saveAll(Arrays.asList(itemPedido1, itemPedido2, itemPedido3));
+		
+		
 	}
 
 }
