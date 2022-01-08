@@ -11,6 +11,11 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
+import com.conquistandoavaga.winner.domain.Cliente;
+import com.conquistandoavaga.winner.dto.ClienteDTO;
+import com.conquistandoavaga.winner.repositories.ClienteRepository;
+import com.conquistandoavaga.winner.resources.exceptions.FieldMessage;
+
  
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
