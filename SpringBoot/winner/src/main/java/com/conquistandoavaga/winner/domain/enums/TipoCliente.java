@@ -1,6 +1,6 @@
 package com.conquistandoavaga.winner.domain.enums;
 
-import java.util.Iterator;
+
 
 public enum TipoCliente {
 	
