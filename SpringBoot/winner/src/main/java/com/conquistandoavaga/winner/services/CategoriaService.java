@@ -18,16 +18,16 @@ import com.conquistandoavaga.winner.services.exceptions.DataIntegrityException;
 
 @Service
 public class CategoriaService {
-	
+
 	@Autowired
 	CategoriaRepository repository;
-	
+
 	public Categoria find(Integer id) {
-		//Optional<Categoria> obj = repository.findById(id);
-		//return obj.orElse(null); 
+		// Optional<Categoria> obj = repository.findById(id);
+		// return obj.orElse(null);
 		Optional<Categoria> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-		 "Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName(), null));
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName(), null));
 	}
 
 	public Categoria insert(Categoria obj) {
@@ -36,8 +36,9 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Categoria obj) {
-		find(obj.getId());
-		return repository.save(obj);
+		Categoria newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repository.save(newObj);
 	}
 
 	public void delete(Integer id) {
@@ -52,15 +53,20 @@ public class CategoriaService {
 	public List<Categoria> findAll() {
 		return repository.findAll();
 	}
-	
-	//Page - class do springboot que encapsula informacoes e operacoes sobre a paginacao
-	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+
+	// Page - class do springboot que encapsula informacoes e operacoes sobre a
+	// paginacao
+	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		
+
 		return repository.findAll(pageRequest);
 	}
-	
+
 	public Categoria fromDTO(CategoriaDTO categoriaDTO) {
 		return new Categoria(categoriaDTO.getId(), categoriaDTO.getNome());
+	}
+
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
 	}
 }
