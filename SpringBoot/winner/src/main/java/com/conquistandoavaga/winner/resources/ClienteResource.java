@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.conquistandoavaga.winner.domain.Categoria;
 import com.conquistandoavaga.winner.domain.Cliente;
-import com.conquistandoavaga.winner.dto.CategoriaDTO;
 import com.conquistandoavaga.winner.dto.ClienteDTO;
 import com.conquistandoavaga.winner.dto.ClienteNewDTO;
 import com.conquistandoavaga.winner.services.ClienteService;
@@ -47,8 +45,7 @@ public class ClienteResource {
 					.buildAndExpand(obj.getId())
 					.toUri();
 		
-		return ResponseEntity.created(uri).build();
-		
+		return ResponseEntity.created(uri).build();	
 	}
 	
 	
@@ -67,8 +64,7 @@ public class ClienteResource {
 	 
 	@RequestMapping( method = RequestMethod.GET)
 	public ResponseEntity<List<ClienteDTO>> findAll() {
-		 List<Cliente> cliente = service.findAll();
-		 
+		List<Cliente> cliente = service.findAll();	 
 		 //usando o DTO 
 		List<ClienteDTO> clienteDTO = cliente.stream().map(obj -> new ClienteDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(clienteDTO);

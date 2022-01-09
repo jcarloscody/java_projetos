@@ -3,6 +3,7 @@ package com.conquistandoavaga.winner.domain;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -104,6 +105,15 @@ public class Pedido implements Serializable {
 
 	public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
+	}
+	
+	public double getValorTotal() {
+		double soma = 0.0;
+		for (ItemPedido i: itens) {
+			soma += i.getSubtotal();
+		}
+		
+		return soma;
 	}
 
 	@Override
