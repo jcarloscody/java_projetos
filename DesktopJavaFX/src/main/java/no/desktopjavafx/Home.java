@@ -6,13 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import no.utility.UserProgram;
 
 import java.io.IOException;
 
 public class Home extends Application {
 
     private static Stage stage;//janela1
-
+    private static UserProgram userProgram;
 
     public static void main(String[] args) {
         launch();
@@ -37,5 +38,13 @@ public class Home extends Application {
 
     public static void setStage(Stage stage) {
         Home.stage = stage;
+    }
+
+    public  void setUserProgram(UserProgram userProgram){
+        Home.userProgram = userProgram;
+    }
+
+    public  UserProgram getUserProgram(){
+        return userProgram;
     }
 }

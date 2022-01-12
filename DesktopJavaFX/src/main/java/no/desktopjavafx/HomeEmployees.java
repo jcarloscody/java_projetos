@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import no.utility.UserProgram;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ public class HomeEmployees extends Application {
 
     private static Stage stage;//janela1
     private  static  Scene scene;
-
+    private static UserProgram userProgram;
     public static void main(String[] args) {
         launch();
     }
@@ -45,5 +46,13 @@ public class HomeEmployees extends Application {
 
     public static void setScene(Scene scene) {
         HomeEmployees.scene = scene;
+    }
+
+    public  void setUserProgram(UserProgram userProgram){
+        HomeEmployees.userProgram = userProgram;
+    }
+
+    public  UserProgram getUserProgram(){
+        return userProgram;
     }
 }

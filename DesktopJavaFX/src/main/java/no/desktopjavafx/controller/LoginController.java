@@ -19,6 +19,7 @@ import no.desktopjavafx.Home;
 import no.desktopjavafx.Login;
 import no.entities.User;
 import no.services.UserServices;
+import no.utility.UserProgram;
 
 import java.io.IOException;
 import java.net.URL;
@@ -64,7 +65,10 @@ public class LoginController implements Initializable {
 
         if (rs.next()){
             Home home = new Home();
+            UserProgram userProgram = new UserProgram(user);
+            home.setUserProgram(userProgram);
             home.start(new Stage());
+
             fechar();
         }else{
             erroLabel.setText("username or password was wrong");

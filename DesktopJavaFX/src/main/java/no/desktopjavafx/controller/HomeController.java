@@ -2,6 +2,7 @@ package no.desktopjavafx.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -14,10 +15,15 @@ import javafx.stage.Stage;
 import no.desktopjavafx.Home;
 import no.desktopjavafx.HomeEmployees;
 import no.desktopjavafx.Login;
+import no.entities.User;
+import no.utility.UserProgram;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomeController {
+public class HomeController implements Initializable {
+
 
 
     @FXML
@@ -97,8 +103,21 @@ public class HomeController {
     @FXML
     void onEmployees(ActionEvent event) throws IOException {
         HomeEmployees homeEmployees = new HomeEmployees();
+        Home home = new Home();
+        homeEmployees.setUserProgram(home.getUserProgram());
         homeEmployees.start(new Stage());
         onClose(event);
     }
+
+    @FXML
+    void onNomeLabel(){
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Home home = new Home();
+        nomeLabel.setText(home.getUserProgram().getUser().getUserName());
+    }
+
 
 }

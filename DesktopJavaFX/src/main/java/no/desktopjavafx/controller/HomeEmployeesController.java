@@ -3,6 +3,7 @@ package no.desktopjavafx.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,8 +23,10 @@ import no.desktopjavafx.Login;
 import no.desktopjavafx.NewEmployee;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomeEmployeesController {
+public class HomeEmployeesController implements Initializable {
 
     @FXML
     private Button closeButton;
@@ -102,5 +105,11 @@ public class HomeEmployeesController {
     @FXML
     void onFechar(ActionEvent event) {
         System.exit(0);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        HomeEmployees homeEmployees = new HomeEmployees();
+        nomeLabel.setText(homeEmployees.getUserProgram().getUser().getUserName());
     }
 }

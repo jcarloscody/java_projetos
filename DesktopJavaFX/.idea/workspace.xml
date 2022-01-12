@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6309537f-fc5a-4eb8-9806-5c2b1b62397a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/no/utility/UserProgram.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/HomeEmployeesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/HomeEmployeesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/NewEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/NewEmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/employeecadastro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/employeecadastro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/homeadme.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/homeadme.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/homeadmh.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/homeadmh.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/no/desktopjavafx/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/no/desktopjavafx/employeecadastro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/no/desktopjavafx/employeecadastro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/no/desktopjavafx/homeadme.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/no/desktopjavafx/homeadme.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/no/desktopjavafx/homeadmh.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/no/desktopjavafx/homeadmh.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/no/desktopjavafx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/no/desktopjavafx/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/HomeEmployees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/HomeEmployees.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/NewEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/NewEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/HomeEmployeesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/HomeEmployeesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/no/desktopjavafx/controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
