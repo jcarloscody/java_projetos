@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
@@ -15,7 +16,9 @@ import javafx.stage.Stage;
 import no.desktopjavafx.Home;
 import no.desktopjavafx.HomeEmployees;
 import no.desktopjavafx.Login;
+import no.entities.Employee;
 import no.entities.User;
+import no.services.EmployeServices;
 import no.utility.UserProgram;
 
 import java.io.IOException;
@@ -30,7 +33,10 @@ public class HomeController implements Initializable {
     private Button closeButton;
 
     @FXML
-    private Button minimizeButton;
+    private TextField cpfTextField;
+
+    @FXML
+    private Button homeButton;
 
     @FXML
     private Circle logoBolaImage;
@@ -39,14 +45,19 @@ public class HomeController implements Initializable {
     private ImageView logoCarImage;
 
     @FXML
-    private Button employeesButton;
+    private Text logoLetraImage;
 
     @FXML
-    private Text logoLetraImage;
+    private Button minimizeButton;
 
     @FXML
     private Label nomeLabel;
 
+    @FXML
+    private TextField nomeTextField;
+
+    @FXML
+    private TextField salarioTextField;
 
     @FXML
     private Button signOutButton;
@@ -117,6 +128,11 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Home home = new Home();
         nomeLabel.setText(home.getUserProgram().getUser().getUserName());
+    }
+
+    @FXML
+    void salvar(ActionEvent event) {
+        Employee employee = new Employee(nomeTextField.getText(), cpfTextField.getText(), Double.parseDouble(salarioTextField.getText()));
     }
 
 

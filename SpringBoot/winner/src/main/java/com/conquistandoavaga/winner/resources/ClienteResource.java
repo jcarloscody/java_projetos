@@ -35,7 +35,7 @@ public class ClienteResource {
 		return ResponseEntity.ok().body(Cliente);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	/*@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDTO){
 		Cliente obj = service.insert(service.fromDTO(objDTO));
 		
@@ -46,7 +46,7 @@ public class ClienteResource {
 					.toUri();
 		
 		return ResponseEntity.created(uri).build();	
-	}
+	}*/
 	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
