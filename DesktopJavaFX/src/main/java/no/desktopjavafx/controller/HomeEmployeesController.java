@@ -158,21 +158,32 @@ public class HomeEmployeesController implements Initializable {
         initTable();
 
         deleteButton.setOnMouseClicked((MouseEvent e ) -> {
+            nomePesquisaTextField.setText("");
+            cpfPesquisaTextField.setText("");
+            salarioPesquisaTextField.setText("");
+            limpar ();
             delete();
         });
 
         atualizaButton.setOnMouseClicked((MouseEvent e ) -> {
+            nomePesquisaTextField.setText("");
+            cpfPesquisaTextField.setText("");
+            salarioPesquisaTextField.setText("");
+            limpar ();
             tabela.setItems(atualizaTabela());
         });
 
         tabela.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Employee>() {
             @Override
             public void changed(ObservableValue<? extends Employee> observable, Employee oldValue, Employee newValue) {
-                selecionadoEmployee = (Employee) newValue;
+                selecionadoEmployee = (Employee) newValue != null ? newValue : oldValue;
+                System.out.println((Employee) newValue);
+                if (selecionadoEmployee.getNome() != null){
+                    nomePesquisaTextField.setText(selecionadoEmployee.getNome());
+                    cpfPesquisaTextField.setText(selecionadoEmployee.getCpf());
+                    salarioPesquisaTextField.setText(String.valueOf(selecionadoEmployee.getSalario()));
+                }
 
-                nomePesquisaTextField.setText(selecionadoEmployee.getNome());
-                cpfPesquisaTextField.setText(selecionadoEmployee.getCpf());
-                salarioPesquisaTextField.setText(String.valueOf(selecionadoEmployee.getSalario()));
             }
         });
 
@@ -196,7 +207,12 @@ public class HomeEmployeesController implements Initializable {
         });
 
         pesquisaButton.setOnMouseClicked((MouseEvent e)-> {
+            nomePesquisaTextField.setText("");
+            cpfPesquisaTextField.setText("");
+            salarioPesquisaTextField.setText("");
+            limpar ();
             tabela.setItems(buscar());
+
         });
     }
 
@@ -211,9 +227,9 @@ public class HomeEmployeesController implements Initializable {
 
     public void initTable(){
         EmployeeReposit reposit = new EmployeeReposit();
-        for (int x = 0; x < reposit.lista().size(); x++){
+        /*for (int x = 0; x < reposit.lista().size(); x++){
             System.out.println(reposit.lista().get(x).getId());
-        }
+        }*/
         idColumn.setCellValueFactory(new PropertyValueFactory("id"));
         nomeColumn.setCellValueFactory(new PropertyValueFactory("nome"));
         salarioColumn.setCellValueFactory(new PropertyValueFactory("salario"));
@@ -235,6 +251,7 @@ public class HomeEmployeesController implements Initializable {
     }
 
     private ObservableList<Employee> buscar(){
+
         ObservableList<Employee> employeePesquisa = FXCollections.observableArrayList();
 
         for (int x = 0; x < employees.size(); x++){
@@ -243,5 +260,11 @@ public class HomeEmployeesController implements Initializable {
             }
         }
         return  employeePesquisa;
+    }
+
+    private  void limpar (){
+        nomePesquisaTextField.setText("");
+        cpfPesquisaTextField.setText("");
+        salarioPesquisaTextField.setText("");
     }
 }
