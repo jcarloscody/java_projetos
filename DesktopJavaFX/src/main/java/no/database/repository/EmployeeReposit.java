@@ -75,13 +75,9 @@ public class EmployeeReposit {
         List<Employee> lista = new ArrayList<>();
         try{
             connectionFactory.connect();
-            //Statement instrucao = connectionFactory.getConnection().createStatement();
             PreparedStatement stm = connectionFactory.getConnection().prepareStatement("select * from employee");
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
-                //System.out.println(rs.getInt("id") + rs.getString("nome") + rs.getString("cpf") + rs.getDouble("salario") );
-                /*Employee e = new Employee(rs.getLong("id"), rs.getString("nome"),
-                        rs.getString("cpf"), rs.getDouble("salario"));*/
                 Employee e = new Employee();
                 e.setId(rs.getLong("id"));
                 e.setNome(rs.getString("nome"));
