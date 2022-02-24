@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -21,6 +22,7 @@ public class Clientes {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
 
     public Cliente salvar(Cliente client){
         jdbcTemplate.update(INSERT, new Object[]{client.getNome()});  //update serve para insert, update delete

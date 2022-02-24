@@ -3,6 +3,7 @@ package com.github.jcarloscody;
 
 import com.github.jcarloscody.domain.entity.Cliente;
 import com.github.jcarloscody.domain.repositorio.Clientes;
+import com.github.jcarloscody.domain.repositorio.ClientesEntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,21 +18,21 @@ import java.util.List;
 public class VendasApplication {
 
     @Bean
-    public CommandLineRunner init(@Autowired Clientes clientes){
+    public CommandLineRunner init(@Autowired Clientes clientes, @Autowired ClientesEntityManager clientesEntityManager){
         return args -> {
-            clientes.salvar(new Cliente("josue"));
-            clientes.salvar(new Cliente("marcos"));
-            clientes.salvar(new Cliente("silveira"));
+            clientesEntityManager.salvar(new Cliente("josue"));
+            clientesEntityManager.salvar(new Cliente("marcos"));
+            clientesEntityManager.salvar(new Cliente("silveira"));
 
-            clientes.buscarNome("os").forEach(System.out::println);
+            //clientes.buscarNome("os").forEach(System.out::println);
 
-            System.out.println("DELETANDO TODOS");
+            //System.out.println("DELETANDO TODOS");
 
-            clientes.obterTodos().forEach(c -> {
+            /*clientes.obterTodos().forEach(c -> {
                 clientes.deletar(c);
             });
             System.out.println("RESULTADO APOS DELECAO");
-            clientes.obterTodos().forEach(System.out::println);
+            clientes.obterTodos().forEach(System.out::println);*/
         };
     }
 
