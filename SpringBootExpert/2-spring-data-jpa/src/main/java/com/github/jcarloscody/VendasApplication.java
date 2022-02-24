@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class VendasApplication {
@@ -17,9 +19,19 @@ public class VendasApplication {
     @Bean
     public CommandLineRunner init(@Autowired Clientes clientes){
         return args -> {
-            Cliente cliente = new Cliente();
-            cliente.setNome("josue");
-            clientes.salvar(cliente);
+            clientes.salvar(new Cliente("josue"));
+            clientes.salvar(new Cliente("marcos"));
+            clientes.salvar(new Cliente("silveira"));
+
+            clientes.buscarNome("os").forEach(System.out::println);
+
+            System.out.println("DELETANDO TODOS");
+
+            clientes.obterTodos().forEach(c -> {
+                clientes.deletar(c);
+            });
+            System.out.println("RESULTADO APOS DELECAO");
+            clientes.obterTodos().forEach(System.out::println);
         };
     }
 
