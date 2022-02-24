@@ -24,6 +24,9 @@ public class VendasApplication {
             clientesEntityManager.salvar(new Cliente("marcos"));
             clientesEntityManager.salvar(new Cliente("silveira"));
 
+            clientesEntityManager.buscarTodos().forEach(cliente -> {
+                clientesEntityManager.deletar(cliente);
+            });
             //clientes.buscarNome("os").forEach(System.out::println);
 
             //System.out.println("DELETANDO TODOS");
